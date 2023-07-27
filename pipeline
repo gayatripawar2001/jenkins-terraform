@@ -1,14 +1,13 @@
 pipeline {
 agent any
 tools {
-  terraform 'terraform'
+  terraform 'terraform-1'
 }
-options { ansiColor('xterm') } 
  stages { 
    stage ('Checkout Repo') { 
      steps { 
        cleanWs()
-       sh  'git clone https://github.com/UnixArena/terraform-test.git'
+       sh  'https://github.com/gayatripawar2001/Terraform.git'
       }
       } 
 
