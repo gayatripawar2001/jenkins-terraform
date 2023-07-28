@@ -1,7 +1,7 @@
 pipeline {
 agent any
 tools {
-  terraform 'terraform-1'
+  terraform 'Terraform'
 }
  stages { 
    stage ('Checkout Repo') { 
@@ -11,7 +11,7 @@ tools {
       }
       } 
 
-stage ('Terraform version') { 
+stage ('terraform version') { 
   steps {
    sh '''
     terraform --version
@@ -19,7 +19,7 @@ stage ('Terraform version') {
     }
     }
     
-  stage ('Terraform init') { 
+  stage ('terraform init') { 
   steps {
    sh '''
    cd terraform-test/
@@ -28,7 +28,7 @@ stage ('Terraform version') {
    }
    }
    
-  stage ('Terraform plan') { 
+  stage ('terraform plan') { 
   steps {
    sh '''
    cd terraform-test/
@@ -38,7 +38,7 @@ stage ('Terraform version') {
    }
    }
    
- stage ('Terraform apply') { 
+ stage ('terraform apply') { 
   steps {
    sh '''
    cd terraform-test/
