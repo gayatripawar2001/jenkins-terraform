@@ -4,14 +4,7 @@ tools {
   terraform 'Terraform'
 }
  stages { 
-   stage ('Checkout Repo') { 
-     steps { 
-       cleanWs()
-       sh  'https://github.com/gayatripawar2001/jenkins-terraform.git'
-      }
-      } 
-
-stage ('terraform version') { 
+  stage ('terraform version') { 
   steps {
    sh '''
     terraform --version
