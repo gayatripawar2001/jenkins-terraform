@@ -7,12 +7,6 @@ environment {
     AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
 }
- stages { 
-  stage('checkout'){
-  steps{
-          git "https://github.com/gayatripawar2001/jenkins-terraform.git"
-       }
-      } 
   stage ('terraform version') { 
   steps {
    sh '''
