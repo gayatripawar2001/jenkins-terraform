@@ -15,7 +15,6 @@ tools {
   stage ('terraform init') { 
   steps {
    sh '''
-   cd terraform-test/
    terraform init
    ''' 
    }
@@ -24,7 +23,6 @@ tools {
   stage ('terraform plan') { 
   steps {
    sh '''
-   cd terraform-test/
    terraform plan -out=tfplan.out
    terraform show -json tfplan.out
    ''' 
@@ -34,7 +32,6 @@ tools {
  stage ('terraform apply') { 
   steps {
    sh '''
-   cd terraform-test/
    terraform apply --auto-approve
    ''' 
    }
