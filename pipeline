@@ -29,10 +29,5 @@ stages{
                 }
           }
        }
-    post { 
-        always { 
-            cleanWs()
-         }
-        }
-       }
+    }
   }
