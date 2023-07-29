@@ -2,10 +2,6 @@ pipeline {
 tools {
   terraform 'Terraform'
 }
-environment {
-    AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
-    AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
-}
 agent any
 stages{
   stage ('terraform version') { 
@@ -23,13 +19,16 @@ stages{
    ''' 
    }
    }
-   
- stage ('terraform apply') { 
-  steps {
-   sh '''
-   terraform apply --auto-approve
-   ''' 
-   }
+
+  stage('Terraform Apply') {
+            steps {
+                withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws_credentials', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) 
+                {
+                
+                sh 'terraform apply --auto-approve'
+                }
+ }
+}
         post { 
         always { 
             cleanWs()
@@ -37,4 +36,3 @@ stages{
         }
        }
   }
-}
