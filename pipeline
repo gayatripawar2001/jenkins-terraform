@@ -4,13 +4,15 @@ tools {
 }
 agent any
 stages{
-  stage ('terraform version') { 
+   stage(‘Set Terraform path’) {
   steps {
-   sh '''
-    terraform --version
-   ''' 
-    }
-    }
+   script {
+    def tfHome = tool name: ‘Terraform’
+    env.PATH = “${tfHome}:${env.PATH}”
+ }
+ sh ‘terraform — version’ 
+ }
+ }
     
   stage ('terraform init') { 
   steps {
