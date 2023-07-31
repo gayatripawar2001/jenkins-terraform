@@ -23,9 +23,10 @@ stages{
 
   stage('terraform Apply') {
   steps {
-
-        sh 'terraform apply -auto-approve'
-     }
+            echo "Terraform action parameter is --> ${action}"
+            sh("terraform ${action} --auto-approve");
+            
+        }
    }
  }
 }
