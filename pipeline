@@ -21,11 +21,9 @@ stages{
    }
 
   stage('terraform Apply') {
-            steps { 
-                {
-                sh 'terraform apply -auto-approve'
+  steps { 
+        sh 'terraform apply -auto-approve'
                 }
           }
        }
     }
-  }
