@@ -10,16 +10,22 @@ tools {
 agent any
 stages{
    stage('terraform version') {
+    steps{
    sh 'terraform --version'
-  
+  }
  }
     
   stage ('terraform init') { 
+   steps{
    sh 'terraform init'
    }
+}
 
   stage('terraform Apply') {
+  steps {
+
         sh 'terraform apply -auto-approve'
-                }
-       }
-    }
+     }
+   }
+ }
+}
