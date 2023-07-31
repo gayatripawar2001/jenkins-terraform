@@ -4,8 +4,9 @@ tools {
 }
 agent any
 stages{
-   stage(‘terraform version’) {
-   sh ‘terraform — version’ 
+   stage('terraform version') {
+   sh '''terraform — version
+    '''
   
  }
     
